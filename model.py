@@ -24,7 +24,7 @@ train_data_dir = 'data/train'
 validation_data_dir = 'data/test'
 nb_train_samples = 3000 #75750
 nb_validation_samples = 1000 #25250
-batch_size = 16
+batch_size = 32
 
 train_datagen = ImageDataGenerator(
     rescale=1. / 255,
