@@ -18,12 +18,12 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 K.clear_session()
 
-In_classes = 2
+In_classes = 3
 img_width, img_height = 300, 300
 train_data_dir = 'data/train'
 validation_data_dir = 'data/test'
-nb_train_samples = 3000 #75750
-nb_validation_samples = 1000 #25250
+nb_train_samples = 4500 #75750
+nb_validation_samples = 1500 #25250
 batch_size = 32
 
 train_datagen = ImageDataGenerator(
@@ -53,7 +53,7 @@ x = GlobalAveragePooling2D()(x)
 x = Dense(128,activation='relu')(x)
 x = Dropout(0.2)(x)
 
-predictions = Dense(2,kernel_regularizer=regularizers.l2(0.005), activation='softmax')(x)
+predictions = Dense(In_classes,kernel_regularizer=regularizers.l2(0.005), activation='softmax')(x)
 
 # use this if you are training a model from scratch via transfer learning
 model = Model(inputs=inception.input, outputs=predictions)
