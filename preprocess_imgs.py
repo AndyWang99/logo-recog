@@ -12,7 +12,7 @@ datagen = ImageDataGenerator(
         horizontal_flip=True,
         fill_mode='nearest')
 
-images = glob.glob("data/test/starbucks/*.jpg")
+images = glob.glob("data/test/logo_starbucks/*.jpg")
 for image in images:
     with open(image, 'rb') as file:
         img = Image.open(file)
