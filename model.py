@@ -17,8 +17,8 @@ K.clear_session()
 
 In_classes = 2
 img_width, img_height = 300, 300
-train_data_dir = 'train'
-validation_data_dir = 'test'
+train_data_dir = 'data/train'
+validation_data_dir = 'data/test'
 nb_train_samples = 3000 #75750
 nb_validation_samples = 1000 #25250
 batch_size = 16
