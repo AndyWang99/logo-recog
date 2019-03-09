@@ -12,6 +12,9 @@ from tensorflow.keras.regularizers import l2
 from tensorflow import keras
 import numpy as np
 from PIL import Image
+import ssl
+
+ssl._create_default_https_context = ssl._create_unverified_context
 
 K.clear_session()
 
@@ -50,7 +53,7 @@ x = GlobalAveragePooling2D()(x)
 x = Dense(128,activation='relu')(x)
 x = Dropout(0.2)(x)
 
-predictions = Dense(3,kernel_regularizer=regularizers.l2(0.005), activation='softmax')(x)
+predictions = Dense(2,kernel_regularizer=regularizers.l2(0.005), activation='softmax')(x)
 
 # use this if you are training a model from scratch via transfer learning
 model = Model(inputs=inception.input, outputs=predictions)
@@ -58,7 +61,7 @@ model = Model(inputs=inception.input, outputs=predictions)
 #model = keras.models.load_model('6_epoch_model_trained_3class.hdf5') 
 
 model.compile(optimizer=SGD(lr=0.0001, momentum=0.9), loss='categorical_crossentropy', metrics=['accuracy'])
-checkpointer = ModelCheckpoint(filepath='best_model_3class.hdf5', verbose=1, save_best_only=True)
+checkpointer = ModelCheckpoint(filepath='logo_best_model_2class.hdf5', verbose=1, save_best_only=True)
 csv_logger = CSVLogger('history.log')
 
 history = model.fit_generator(train_generator,
@@ -69,4 +72,4 @@ history = model.fit_generator(train_generator,
                     verbose=1,
                     callbacks=[csv_logger, checkpointer])
 
-model.save('model_trained_3class.hdf5')
+model.save('logo_model_trained_2class.hdf5')
