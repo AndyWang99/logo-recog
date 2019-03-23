@@ -1,6 +1,8 @@
 # logo-recog
 Tensorflow model that recognizes Starbucks and Apple logos
 
+INITIALLY DESIGNED FOR USE IN HACKLASSONDE WITH APP CALLED "GROW" (https://github.com/siddharthgarg-waterloo/Grow)
+
 Setup:
 
 cd into repo directory, then:
